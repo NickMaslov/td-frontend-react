@@ -38,7 +38,6 @@ const TodosList = (props) => {
         TodoDataService.completeTodo(todoId, props.token)
             .then((response) => {
                 retrieveTodos();
-                console.log('completeTodo', todoId);
             })
             .catch((e) => {
                 console.log(e);
