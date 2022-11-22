@@ -18,8 +18,21 @@ function App() {
     const [token, setToken] = React.useState(null);
     const [error, setError] = React.useState('');
     async function login(user = null) {
-        setUser(user);
+        TodoDataService.login(user)
+            .then((response) => {
+                setToken(response.data.token);
+                setUser(user.username);
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('user', user.username);
+                setError('');
+            })
+            .catch((e) => {
+                console.log('login', e);
+                setError(e.toString());
+            });
     }
+    console.log('<--->', user, token);
+
     async function logout() {
         setToken('');
         setUser('');
@@ -32,7 +45,7 @@ function App() {
                 setToken(response.data.token);
                 setUser(user.username);
                 localStorage.setItem('token', response.data.token);
-                localStorage.setItem('user', user.username);
+                localStorage.setItem('user', user);
             })
             .catch((e) => {
                 console.log(e);
