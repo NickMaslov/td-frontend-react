@@ -31,7 +31,6 @@ function App() {
                 setError(e.toString());
             });
     }
-    console.log('<--->', user, token);
 
     async function logout() {
         setToken('');
@@ -108,26 +107,7 @@ function App() {
             </div>
 
             <footer className='text-center text-lg-start bg-light text-muted mt-4'>
-                <div className='text-center p-4'>
-                    © Copyright -{' '}
-                    <a
-                        target='_blank'
-                        rel='noreferrer'
-                        className='text-reset fw-bold text-decoration-none'
-                        href='https://twitter.com/greglim81'
-                    >
-                        Greg Lim
-                    </a>{' '}
-                    -{' '}
-                    <a
-                        target='_blank'
-                        rel='noreferrer'
-                        className='text-reset fw-bold text-decoration-none'
-                        href='https://twitter.com/danielgarax'
-                    >
-                        Daniel Correa
-                    </a>{' '}
-                </div>{' '}
+                <div className='text-center p-4'></div>
             </footer>
         </div>
     );
